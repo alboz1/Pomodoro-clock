@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto')
+
+=text-shadow($x: 0px, $y: 1px, $blur: 1px)
+	text-shadow: $x $y $blur rgba(0,0,0,.3)
+
+body
+	font-family: 'Roboto', sans-serif
+	height: 100vh
+	background: #181c1a
+
+h1
+	text-align: center
+	margin: 0
+	padding: 50px 0
+	color: white
+	font-weight: 300
+
+.container
+	width: 600px
+	margin: 0 auto
+	padding: 20px 0
+	box-shadow: 0 0 0 8px rgba(#19e597,.1),0 0 0 15px rgba(#19e597,.1)
+	background: linear-gradient(125deg, #36af81, #33c4a2)
+	text-align: center
+	color: white
+
+	.timer
+		font-size: 6em
+		+text-shadow
+		padding: 30px 0
+	.border
+		width: 300px
+		border: none
+		height: 2px
+		background: rgba(white,.7)
+		box-shadow: 0 0.7px 1px rgba(0,0,0,.1), 0 -0.7px 1px rgba(0,0,0,.1)
+
+	.controls
+		padding: 30px 0
+		display: flex
+		justify-content: space-around
+		align-items: center
+		.timer-length-wrapper
+			font-size: 2em
+			.control
+				padding: 0
+				+text-shadow
+				background: none
+				border: none
+				color: white
+				outline: none
+				transition: all 0.2s ease-in-out
+				&:hover:not(.time)
+					color: lighten(#19e597,34%)
+				&:not(.time)
+					cursor: pointer
+				&.time
+					display: inline-block
+					width: 35px
+		.btn
+			font-size: 4.6em
+			cursor: pointer
+			+text-shadow
+			text-transform: uppercase
+			order: 2
+			transition: all 0.2s ease-in-out
+			&:hover
+				color: lighten(#19e597,34%)
+			&.stop-btn
+				display: none
+
+		.reset
+			font-size: 1.4em
+			text-transform: uppercase
+			+text-shadow
+			cursor: pointer
+			order: 3
+			position: relative
+			overflow: hidden
+			transition: all 0.2s ease-in-out
+			&:hover:after
+				transform: translateX(0)
+			&:hover
+				color: lighten(#19e597,34%)
+			&:after
+				content: ''
+				display: block
+				position: absolute
+				bottom: 0
+				width: 100%
+				height: 2px
+				background: lighten(#19e597,34%)
+				transform: translateX(-100%)
+				transition: all 0.2s ease-in-out
+
+@media (max-width: 640px)
+	body
+		display: block
+	.container
+		width: 100%
+		height: 100%
+		padding: 0
+		display: flex
+		flex-direction: column
+		justify-content: center
+	
+@media (max-width: 460px)
+	.container
+		.controls
+			display: flex
+
+	

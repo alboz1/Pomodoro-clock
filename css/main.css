@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+body {
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  background: #181c1a; }
+
+h1 {
+  text-align: center;
+  margin: 0;
+  padding: 50px 0;
+  color: white;
+  font-weight: 300; }
+
+.container {
+  width: 600px;
+  margin: 0 auto;
+  padding: 20px 0;
+  -webkit-box-shadow: 0 0 0 8px rgba(25, 229, 151, 0.1), 0 0 0 15px rgba(25, 229, 151, 0.1);
+          box-shadow: 0 0 0 8px rgba(25, 229, 151, 0.1), 0 0 0 15px rgba(25, 229, 151, 0.1);
+  background: linear-gradient(125deg, #36af81, #33c4a2);
+  text-align: center;
+  color: white; }
+  .container .timer {
+    font-size: 6em;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
+    padding: 30px 0; }
+  .container .border {
+    width: 300px;
+    border: none;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.7);
+    -webkit-box-shadow: 0 0.7px 1px rgba(0, 0, 0, 0.1), 0 -0.7px 1px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0.7px 1px rgba(0, 0, 0, 0.1), 0 -0.7px 1px rgba(0, 0, 0, 0.1); }
+  .container .controls {
+    padding: 30px 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    .container .controls .timer-length-wrapper {
+      font-size: 2em; }
+      .container .controls .timer-length-wrapper .control {
+        padding: 0;
+        text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
+        background: none;
+        border: none;
+        color: white;
+        outline: none;
+        -webkit-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out; }
+        .container .controls .timer-length-wrapper .control:hover:not(.time) {
+          color: #b5f7de; }
+        .container .controls .timer-length-wrapper .control:not(.time) {
+          cursor: pointer; }
+        .container .controls .timer-length-wrapper .control.time {
+          display: inline-block;
+          width: 35px; }
+    .container .controls .btn {
+      font-size: 4.6em;
+      cursor: pointer;
+      text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
+      text-transform: uppercase;
+      -webkit-box-ordinal-group: 3;
+          -ms-flex-order: 2;
+              order: 2;
+      -webkit-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out; }
+      .container .controls .btn:hover {
+        color: #b5f7de; }
+      .container .controls .btn.stop-btn {
+        display: none; }
+    .container .controls .reset {
+      font-size: 1.4em;
+      text-transform: uppercase;
+      text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      -webkit-box-ordinal-group: 4;
+          -ms-flex-order: 3;
+              order: 3;
+      position: relative;
+      overflow: hidden;
+      -webkit-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out; }
+      .container .controls .reset:hover:after {
+        -webkit-transform: translateX(0);
+                transform: translateX(0); }
+      .container .controls .reset:hover {
+        color: #b5f7de; }
+      .container .controls .reset:after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background: #b5f7de;
+        -webkit-transform: translateX(-100%);
+                transform: translateX(-100%);
+        -webkit-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out; }
+
+@media (max-width: 640px) {
+  body {
+    display: block; }
+  .container {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; } }
+
+@media (max-width: 460px) {
+  .container .controls {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; } }
