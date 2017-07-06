@@ -10,6 +10,18 @@ const pomodoro = (function() {
 	let time = 25;
 	let timeLeft = time * 60;
 	let countDown = null;
+	let startingTimer;
+	//request user to allow browser notification
+	askNotification();
+
+	function askNotification() {
+		if (!("Notification" in window)) return;
+		Notification.requestPermission();
+
+		if (Notification.permission !== "denied") {
+			Notification.requestPermission();
+		}
+	}
 
 	timer.innerHTML = getTime();
 	start.addEventListener('click', startTimer);
@@ -25,21 +37,22 @@ const pomodoro = (function() {
 	}
 
 	function startTimer() {
+		startingTimer = getTime().toString().replace(':00', '');
 		this.style.display = 'none';
 		stop.style.display = 'block';
-		
+
 		countDown = setInterval(counter, 1000);
 		function counter() {
 			if (timeLeft > 0) {
 				timeLeft--;
 				timer.innerHTML = getTime();
-				document.title = getTime();
+				document.title = '(' + getTime() + ') ' + 'Pomodoro Clock';
 			} else if (timeLeft === 0) {
 				clearInterval(countDown);
 				timer.textContent = 'Timer Finished';
+				notify('Pomodoro clock', '../notification-icon.png', 'Your '+ startingTimer +' minute timer finished');
 			}
 		}
-		
 	}
 
 	function stopTimer() {
@@ -73,5 +86,15 @@ const pomodoro = (function() {
 		timeLeft = time * 60;
 		timer.textContent = getTime();
 		timerLength.textContent = time;
+	}
+
+	function notify(theTitle, theIcon, theBody) {
+		if (Notification.permission === 'granted') {
+			const options = {
+				body: theBody,
+				icon: theIcon
+			}
+			const notification = new Notification(theTitle, options);
+		}
 	}
 })();
